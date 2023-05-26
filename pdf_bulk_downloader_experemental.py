@@ -290,7 +290,7 @@ def display_information():
                   10. If web-page link provided instead of pdf - use "Get Links" button.
                   11. If pdf links are in you web-page link they will be saved in "links.txt"
                   12. Use "links.txt" while browse. """
-                  
+
     info_text = "\n".join(line.strip() for line in info_text.splitlines())
     messagebox.showinfo("Information", info_text)
 
@@ -343,13 +343,6 @@ progress_label.pack()
 progress_text = Text(window, height=30, width=110)
 progress_text.pack()
 
-# Get links field and "Run" button
-get_links_label = Label(window, text="Enter web_site", font=('Arial', 12, 'bold'), fg='#800000')
-get_links_label.pack(anchor='w', padx=10)
-get_links_entry = ttk.Entry(window, width=80)
-get_links_entry.pack(anchor='w', padx=10)
-run_button = Button(window, text="Run", command=open_link_window)
-run_button.configure(font=('Arial', 12))
-run_button.pack(anchor='w', padx=10)
+
 # Run the GUI window
 window.mainloop()
