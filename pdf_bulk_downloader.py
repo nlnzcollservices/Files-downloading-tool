@@ -154,6 +154,7 @@ def process_urls(url_file_path, save_directory, progress_text, processed_urls):
             count_downloaded = 0
 
             for url in urls:
+                url = url.rstrip(".")
                 if not url in processed_urls:
                     if cancel_requested:  # Check if cancellation is requested
                         break  # Exit the loop if cancellation is requested
