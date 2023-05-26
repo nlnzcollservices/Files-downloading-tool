@@ -9,13 +9,15 @@ from datetime import datetime
 from tkinter import messagebox
 import traceback
 import re
+import urllib3
+
+urllib3.disable_warnings()
 
 cancel_requested = False
 csv_file_path = "download_details.csv"  # Path to the CSV file
 
 current_datetime = datetime.now()
 formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H:%M")
-
 
 def download_pdf(url, save_directory, progress_text, file_count, csv_writer):
     """Retrieves filename, redirect url, save files in the folder, write messate to window and to the csv log
@@ -79,6 +81,14 @@ def download_pdf(url, save_directory, progress_text, file_count, csv_writer):
             # Remove any characters after the first semicolon
             filename = filename.split(";")[0].strip()
             filename = re.sub(r'[\\/:*?"<>|]', '_', filename)  # Replace invalid characters
+            filename = filename.rstrip("_").lstrip("_")
+        existing_files = os.listdir(save_directory)
+        if filename in existing_files:
+            filename, extension = os.path.splitext(filename)
+            current_datetime2 = datetime.now()
+            formatted_datetime2 = current_datetime2.strftime("%Y%m%d%H%M%S")
+            filename = f"{filename}_{formatted_datetime2}{extension}"
+
         save_path = os.path.join(save_directory, filename)
         content_type = response.headers.get("Content-Type")
 

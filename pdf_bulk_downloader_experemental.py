@@ -10,10 +10,12 @@ from tkinter import messagebox
 import traceback
 import re
 from bs4 import BeautifulSoup
+import urllib3
 
+urllib3.disable_warnings()
 
 cancel_requested = False
-csv_file_path = "download_details.csv"  # Path to the CSV file
+csv_file_path = "download_details_exp.csv"  # Path to the CSV file
 
 current_datetime = datetime.now()
 formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H:%M")
@@ -81,6 +83,14 @@ def download_pdf(url, save_directory, progress_text, file_count, csv_writer):
             # Remove any characters after the first semicolon
             filename = filename.split(";")[0].strip()
             filename = re.sub(r'[\\/:*?"<>|]', '_', filename)  # Replace invalid characters
+            filename = filename.rstrip("_").lstrip("_")
+        existing_files = os.listdir(save_directory)
+        if filename in existing_files:
+            filename, extension = os.path.splitext(filename)
+            current_datetime2 = datetime.now()
+            formatted_datetime2 = current_datetime2.strftime("%Y%m%d%H%M%S")
+            filename = f"{filename}_{formatted_datetime2}{extension}"
+
         save_path = os.path.join(save_directory, filename)
         content_type = response.headers.get("Content-Type")
 
@@ -181,7 +191,7 @@ def process_urls(url_file_path, save_directory, progress_text, processed_urls):
 
 
     except PermissionError as e:
-        error_message = f"Error writing to CSV file: {str(e)}.'\n'Please close the 'download_details.csv file'"
+        error_message = f"Error writing to CSV file: {str(e)}.'\n'Please close the 'download_details_exp.csv file'"
         progress_text.insert('end', error_message + "\n")
         progress_text.see('end')
         progress_text.update_idletasks()
@@ -283,10 +293,10 @@ def display_information():
                   3. Click the 'Start Download' button to begin the download process.
                   4. The progress will be displayed in the text area.
                   5. You can cancel the download process by clicking the 'Cancel' button.
-                  6. All information will be in "download_details.csv" file. 
-                  7. If "download_details.csv" already exists new lines will be added there.
-                  8. Links logged in "download_details.csv" will not be processed again.
-                  9. Make sure that "download_details.csv" is not open when you run the app.
+                  6. All information will be in "download_details_exp.csv" file. 
+                  7. If "download_details_exp.csv" already exists new lines will be added there.
+                  8. Links logged in "download_details_exp.csv" will not be processed again.
+                  9. Make sure that "download_details_exp.csv" is not open when you run the app.
                   10. If web-page link provided instead of pdf - use "Get Links" button.
                   11. If pdf links are in you web-page link they will be saved in "links.txt"
                   12. Use "links.txt" while browse. """
