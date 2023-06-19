@@ -253,10 +253,14 @@ window = Tk()
 window.geometry("800x500")  # Set the width and height of the window
 window.title("PDF Downloader")
 
+# App description
+app_info_label = Label(window, text="This app will download files from a list of URLs. Please click on the Info button for full details.\n\n", font=('Arial', 9), fg='#800000')
+app_info_label.pack(anchor='w', padx=10)
+
 # URL file path
-url_file_label = Label(window, text="Select the file with the list of URLs:", font=('Arial', 12, 'bold'), fg='#800000')
+url_file_label = Label(window, text="Select list of URLs:", font=('Arial', 12, 'bold'), fg='#800000')
 url_file_label.pack(anchor='w', padx=10)
-url_info_label = Label(window, text="The app is accepting text file which contains links one per line", font=('Arial', 9), fg='#800000')
+url_info_label = Label(window, text="Select a text file that contains the list of URLs you want to download (one URL per line)", font=('Arial', 9), fg='#800000')
 url_info_label.pack(anchor='w', padx=10)
 url_file_entry = ttk.Entry(window, width=80)
 url_file_entry.pack(anchor='w', padx=10)
@@ -265,8 +269,10 @@ browse_file_button.configure(font=('Arial', 12))
 browse_file_button.pack(anchor='w', padx=10)
 
 # Save directory
-directory_label = Label(window, text="Select the folder to save the files:", font=('Arial', 12, 'bold'),  fg='#800000')
+directory_label = Label(window, text="Select download folder:", font=('Arial', 12, 'bold'),  fg='#800000')
 directory_label.pack(anchor='w', padx=10)
+directory_info_label = Label(window, text="Select the folder where you want to download the files to", font=('Arial', 9), fg='#800000')
+directory_info_label.pack(anchor='w', padx=10)
 directory_var = StringVar()
 directory_entry = ttk.Entry(window, textvariable=directory_var, width=80)
 directory_entry.pack(anchor='w', padx=10)
@@ -285,7 +291,7 @@ cancel_button.configure(font=('Arial', 12))
 cancel_button.pack(side='left')
 # Information button
 info_button = Button(window, text="i", command=display_information, font=('Arial', 12, 'bold'))
-info_button.place(x=470, y=10, width=30, height=30)
+info_button.place(x=10, y=20, width=30, height=30)
 
 # Progress text
 progress_label = Label(window, text="Progress:", font=('Arial', 12,'bold'), fg='#800000')
