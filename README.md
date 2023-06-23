@@ -3,9 +3,13 @@ The APP has GUI and downloading pdfs from text file to given folder
 
 Final version - 2 files:
 
-* file_bulk_downloader.py - downloading files from links and get links from web-page.
+* file_bulk_downloader.py - downloads files from links and get links from web-page, saves log into download_details.csv
 
-* web_bulk_downloader.py - downloading web-pages from links to pdf file.
+* web_bulk_downloader.py - downloads web-pages from links to pdf file.
+
+## Dependancies
+
+[https://wkhtmltopdf.org/downloads.html](https://wkhtmltopdf.org/downloads.html)
 
 
 
