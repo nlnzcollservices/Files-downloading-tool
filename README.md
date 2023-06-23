@@ -1,4 +1,4 @@
-# Downloading_tool
+# Files/web downloading tools
 The APP has GUI and downloading files to given folder 
 
 Final version - 2 files:
@@ -9,7 +9,7 @@ Final version - 2 files:
 
 ## Project Description
 
-[class_diagram](https://github.com/nlnzcollservices/Files-downloading-tool/File_downloader_tool.png)
+![class_diagram](File_downloader_tool.png)
 
 
 
@@ -20,11 +20,10 @@ Final version - 2 files:
 ## Special Libraries
 
 tkinter==8.6
+
 pdfkit==1.0.0 # for web app
 
 yt_dlp - version from '2023.03.04'#for file bulk downlader
-
-
 
 
 
