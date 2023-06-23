@@ -20,11 +20,10 @@ Final version - 2 files:
 ## Special Libraries
 
 tkinter==8.6
+
 pdfkit==1.0.0 # for web app
 
 yt_dlp - version from '2023.03.04'#for file bulk downlader
-
-
 
 
 
