@@ -9,7 +9,7 @@ Final version - 2 files:
 
 ## Project Description
 
-![class_diagram](https://github.com/nlnzcollservices/Files-downloading-tool/File_downloader_tool.png)
+![class_diagram](File_downloader_tool.png)
 
 
 
