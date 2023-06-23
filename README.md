@@ -1,5 +1,5 @@
 # Downloading_tool
-The APP has GUI and downloading pdfs from text file to given folder 
+The APP has GUI and downloading files to given folder 
 
 Final version - 2 files:
 
@@ -7,9 +7,24 @@ Final version - 2 files:
 
 * web_bulk_downloader.py - downloads web-pages from links to pdf file.
 
+## Project Description
+
+[class_diagram](https://github.com/nlnzcollservices/Files-downloading-tool/pic.png)
+
+
+
 ## Dependancies
 
-[https://wkhtmltopdf.org/downloads.html](https://wkhtmltopdf.org/downloads.html)
+[wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) - install this tools first # for web app
+
+## Special Libraries
+
+tkinter==8.6
+pdfkit==1.0.0 # for web app
+
+yt_dlp - version from '2023.03.04'#for file bulk downlader
+
+
 
 
 
