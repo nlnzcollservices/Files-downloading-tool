@@ -1,5 +1,14 @@
 # Downloading_tool
 The APP has GUI and downloading pdfs from text file to given folder 
+
+Final version - 2 files:
+
+* file_bulk_downloader.py - downloading files from links and get links from web-page.
+
+* web_bulk_downloader.py - downloading web-pages from links to pdf file.
+
+
+
 ## Instructions for testing
 
 ### Test 1: Downloading PDF files from a URL file
