@@ -1,4 +1,7 @@
 # Files/web downloading tools
+
+## Project Description
+
 The APP has GUI and downloading files to given folder 
 
 Final version - 2 files:
@@ -7,7 +10,7 @@ Final version - 2 files:
 
 * web_bulk_downloader.py - downloads web-pages from links to pdf file.
 
-## Project Description
+## Class Diagram
 
 ![class_diagram](File_downloader_tool.png)
 
